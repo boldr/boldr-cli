@@ -1,6 +1,9 @@
 # Boldr CLI
 
-The CLI for Boldr allows quick scaffolding of a new Boldr project.
+The CLI for Boldr allows quick scaffolding of a new Boldr project, development utilities, and
+management functions.
+
+Install globally with `npm install -g @boldr/cli` and run with `boldr <command>`.
 
 ## Commands
 - [init](#init)   
@@ -22,7 +25,7 @@ Installation would be `<Current Working Dir>/newProject`
 ### Dev
 `boldr dev`  
 
-Starts the development process. In order for the `dev` command to work, `boldr-plugin-webpack` must be
+Starts the development process. In order for the `dev` command to work, `@boldr/plugin-webpack` must be
 installed.   
 
 **Usage:**
@@ -31,7 +34,7 @@ installed.
 ### Build
 `boldr build`  
 
-Starts the production compiling process. In order for the `build` command to work, `boldr-plugin-webpack` must be
+Starts the production compiling process. In order for the `build` command to work, `@boldr/plugin-webpack` must be
 installed.   
 
 **Usage:**

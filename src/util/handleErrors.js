@@ -9,4 +9,4 @@ module.exports = function handleErrors(task) {
       logger.error(error.message);
     }
   };
-}
+};

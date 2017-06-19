@@ -19,6 +19,6 @@ function register(program) {
     .command('dev', 'Launch the development process.')
     .option('-p, --port <num>', 'Dev server port', program.INT, 1)
     .action(task);
-};
+}
 
 export default { register };

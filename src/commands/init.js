@@ -12,7 +12,7 @@ import { getPkg } from '../util/pkg';
 
 function npmInstall(projectDir: string) {
   logger.task('Installing');
-  logger.info(projectDir)
+  logger.info(projectDir);
   return getPkg(projectDir).then(() => {
     execa('yarn', ['install'], { cwd: projectDir });
   });
@@ -21,18 +21,19 @@ function npmInstall(projectDir: string) {
 function task(args, options) {
   const dirName = args.dir;
   const projectDir = path.join(process.cwd(), dirName);
-  downloadGitRepo('strues/boldr', projectDir, (err) => {
+  downloadGitRepo('strues/boldr', projectDir, err => {
     if (err) {
-      return logger.error(err)
+      return logger.error(err);
     }
-    npmInstall(projectDir)
+    npmInstall(projectDir);
   });
 }
 
 function register(program) {
-  program.command('init', 'initialize a new Boldr project.')
-  .argument('<dir>', 'Directory name')
-  .action(task);
+  program
+    .command('init', 'initialize a new Boldr project.')
+    .argument('<dir>', 'Directory name')
+    .action(task);
 }
 
 export default { register };

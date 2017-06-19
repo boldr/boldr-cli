@@ -10,11 +10,7 @@ const SCOPED_REGEXP = /^@(\w[\w_.-]*)\/(\w[\w_.-]*)$/;
 
 /* :: import type { PackageJSON, PackageJSONDependencies } from './types.js' */
 
-function addScript(
-  pkg /* : PackageJSON */,
-  name /* : string */,
-  value /* : string */
-) {
+function addScript(pkg /* : PackageJSON */, name /* : string */, value /* : string */) {
   const scripts = pkg.scripts || {};
 
   let values = (scripts[name] || '').split(' && ');
@@ -45,9 +41,7 @@ function getScope(cwd /* : string */, scope /* : string */) {
   });
 }
 
-function hasTestFramework(
-  { devDependencies = {} } /* : PackageJSON */
-) /* : boolean */ {
+function hasTestFramework({ devDependencies = {} } /* : PackageJSON */) /* : boolean */ {
   return (
     intersection(Object.keys(devDependencies), [
       'ava',
@@ -58,7 +52,7 @@ function hasTestFramework(
       'qunit',
       'qunitjs',
       'tap',
-      'tape'
+      'tape',
     ]).length > 0
   );
 }
@@ -78,11 +72,7 @@ function injectScope(scope /* : string */, name /* : string */) {
 }
 
 function isReactProject(
-  {
-    dependencies = {},
-    devDependencies = {},
-    peerDependencies = {}
-  } /* : PackageJSON */
+  { dependencies = {}, devDependencies = {}, peerDependencies = {} } /* : PackageJSON */,
 ) /* : boolean */ {
   return !!(
     dependencies.react ||
@@ -97,11 +87,7 @@ function isTestScriptUnconfigured({ scripts = {} } /* : PackageJSON */) {
   return !scripts.test || scripts.test === NPM_INIT_TEST;
 }
 
-function removeScript(
-  pkg /* : PackageJSON */,
-  name /* : string */,
-  value /* : string */
-) {
+function removeScript(pkg /* : PackageJSON */, name /* : string */, value /* : string */) {
   const scripts = pkg.scripts || {};
 
   let values = (scripts[name] || '').split(' && ');
@@ -124,5 +110,5 @@ module.exports = {
   injectScope,
   isReactProject,
   isTestScriptUnconfigured,
-  removeScript
+  removeScript,
 };

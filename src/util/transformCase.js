@@ -21,4 +21,4 @@ module.exports = function transformCase(str, transFn = 'pascalCase') {
     throw new Error(message);
   }
   return changeCase[transFn](str);
-}
+};

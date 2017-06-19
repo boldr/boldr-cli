@@ -32,4 +32,4 @@ module.exports = function generateComponent(component, options = {}) {
     componentPath,
     files,
   };
-}
+};

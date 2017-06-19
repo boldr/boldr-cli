@@ -1,0 +1,23 @@
+{
+    "presets":[
+      ["boldr/node",
+      {
+        "targets": {
+          "node": 8
+        },
+        "modules": "commonjs",
+        "useBuiltins": true,
+        "debug": false,
+        "exclude": ["transform-async-to-generator", "transform-regenerator"]
+      }
+    ]],
+    "plugins":[
+      "syntax-flow",
+      ["fast-async", {
+        "spec": true
+        }],
+        "transform-object-rest-spread",
+        "transform-flow-strip-types",
+        "lodash"
+    ]
+}

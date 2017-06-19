@@ -1,6 +1,6 @@
 {
   "name": "boldr-cli",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Commandline interface for Boldr",
   "main": "lib/boldr-cli.js",
   "license": "MIT",
@@ -22,8 +22,15 @@
     "build": "NODE_ENV=production npm run clean && babel src --out-dir lib",
     "clean": "rimraf lib",
     "format": "prettier --print-width=100 --single-quote=true --jsx-bracket-same-line=false --trailing-comma=all --write \"src/**/*.js\"",
+    "precommit": "lint-staged",
     "prepublish": "npm run clean && npm run build",
     "test": "jest"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --print-width=100 --single-quote=true --jsx-bracket-same-line=false --trailing-comma=all --write \"src/**/*.js\"",
+      "git add"
+    ]
   },
   "jest": {
     "testEnvironment": "node",
@@ -64,7 +71,9 @@
     "eslint": "^4.0.0",
     "eslint-config-boldr": "^0.10.3",
     "fast-async": "^6.2.2",
+    "husky": "^0.13.4",
     "jest": "^20.0.4",
+    "lint-staged": "^4.0.0",
     "prettier": "^1.4.4",
     "rimraf": "^2.6.1"
   },
